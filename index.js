@@ -20,10 +20,10 @@ var userTemplate = Handlebars.compile(templateSource);
 function showData() {
     
     let filteredData = countries.map(function (element) {
-      return element.country + " " + element.flag
+      return element.country + " " + element.flag;
      
     });
-    cName.innerHTML = userTemplate({ countryFlag: filteredData })
+    cName.innerHTML = userTemplate({ countryFlag: filteredData });
     console.log(filteredData);
   }
   showData()

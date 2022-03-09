@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country-Flag</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script type="text/x-template" class="countryFlagTemp">
+        {{#each countryFlag}}
+        <li class="displayData">
+            {{#if this.country}}
+            {{this.country}} {{this.flag}} 
+
+            {{else}}
+                {{this}}
+            {{/if}}
+        </li>
+        {{/each}}
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Country Flag</h1>
+        <div class="row">
+            <div class="display"></div>
+            <div class="myInput">
+                <input class="myFlags" size="8" placeholder="Flag">
+                <input type="text" class="enterCountry" placeholder="Enter country">
+                <input type="button" class="addBtn" value="Add">
+            </div>
+            <div class="myInput">
+                <input type="text" class="search" placeholder="Search">
+                <input type="button" class="searchBtn" value="search">
+            <div class="showFlags">
+                <ul class="showFlags" style="list-style: none;">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" ></script>
+   
+</body>

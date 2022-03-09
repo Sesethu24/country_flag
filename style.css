@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(100, 214, 55);
+}
+
+h1{
+    padding-left: 15em;
+}
+
+.row{
+    padding-left: 25em;
+}
+.searchInput{
+    padding-top: 1em;
+}

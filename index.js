@@ -1,4 +1,4 @@
-const cName = document.querySelector(".enterCountry");
+const cName = document.querySelector(".showFlags");
 const cFlag = document.querySelector(".myFlags");
 const searchBtn = document.querySelector(".searchBtn");
 const addNewCountry = document.querySelector(".addCountry");
@@ -23,8 +23,9 @@ function showData() {
       return element.country + " " + element.flag;
      
     });
-    cName.innerHTML = userTemplate({ countryFlag: filteredData });
-    console.log(filteredData);
+
+    cName.innerHTML =  userTemplate({filteredData})
+     console.log(countries);
   }
   showData()
 

@@ -1,8 +1,8 @@
 const cName = document.querySelector(".showFlags");
 const cFlag = document.querySelector(".myFlags");
 const searchBtn = document.querySelector(".searchBtn");
-const addNewCountry = document.querySelector(".addCountry");
-const addNewFlag = document.querySelector(".addFlag");
+const addNewCountry = document.querySelector(".addNewCountry");
+const addNewFlag = document.querySelector(".myFlags");
 const errorMessages = document.querySelector(".messages");
 const dataDisplay = document.querySelector(".search");
 
@@ -25,12 +25,12 @@ function showData() {
     });
 
     cName.innerHTML =  userTemplate({filteredData})
-     console.log(countries);
-  }
+    }
   showData()
 
   function addAnotherCountry() {
     const newCountryAdded = addNewCountry.value;
+    console.log(newCountryAdded)
     const newFlagAdded = addNewFlag.value;
     const newCountryToUpper = newCountryAdded.charAt(0).toUpperCase() + newCountryAdded.slice(1);
     const flagRegex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
@@ -46,11 +46,27 @@ function showData() {
         });
       }
 
-      return{
-          checkCountry,
-          checkFlag
+     
+      if (newCountryAdded && newFlagAdded != "") 
+      {
+        if (checkCountry(newCountryAdded) == false && checkFlag(newFlagAdded) == false) 
+        {
+         if (newCountryToUpper.match("^[a-zA-Z]*$")) 
+          {
+            if (newFlagAdded.match(flagRegex)) 
+            {
+              countries.push({ country: newCountryAdded, flag: newFlagAdded })
+              dataDisplay.innerHTML = "The country and flag have been added successfully"
+              localStorage.setItem('countries', JSON.stringify(countries))
+               
+            }
+         }
+       }
       }
-  }
-
+      return{
+      checkCountry,
+      checkFlag
+    }
+} 
+  addNewCountry.addEventListener('click', addAnotherCountry);
   searchBtn.addEventListener('click', showData);
-  dataDisplay.addEventListener('click', addAnotherCountry);

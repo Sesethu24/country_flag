@@ -3,7 +3,7 @@ const cName = document.querySelector(".showFlags");
 const searchBtn = document.querySelector(".searchBtn");
 const addCountry = document.querySelector(".enterCountry");
 const addNewFlag = document.querySelector(".myFlags");
-const errorMessages = document.querySelector(".messages");
+const errorMessages = document.querySelector(".display");
 const dataDisplay = document.querySelector(".search");
 const addCountryBtn = document.querySelector(".addNewCountry");
 
@@ -62,7 +62,14 @@ function showData() {
             }
          }
        }
+      }else 
+      if (newCountryToUpper == "" && newFlagAdded == "") {
+        errorMessages.innerHTML = "Please enter a country name and insert a flag"
       }
+      setTimeout(function () {
+        errorMessages.innerHTML = "";
+      }, 3000);
+    
       return{
       checkCountry,
       checkFlag

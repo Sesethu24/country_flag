@@ -24,9 +24,7 @@ function showData() {
     
     let filteredData = countries.map(function (element) {
       return element.country + " " + element.flag;
-     
-    });
-
+     });
     cName.innerHTML =  userTemplate({filteredData})
     }
   showData()
@@ -49,8 +47,7 @@ function showData() {
         });
       }
 
-     
-      if (newCountryAdded && newFlagAdded != "") 
+     if (newCountryAdded && newFlagAdded != "") 
       {
         if (checkCountry(newCountryAdded) == false && checkFlag(newFlagAdded) == false) 
         {
@@ -59,9 +56,9 @@ function showData() {
             if (newFlagAdded.match(flagRegex)) 
             {
               countries.push({ country: newCountryAdded, flag: newFlagAdded })
+              showData();
               dataDisplay.innerHTML = "The country and flag have been added successfully"
               localStorage.setItem('countries', JSON.stringify(countries))
-               
             }
          }
        }
@@ -72,4 +69,4 @@ function showData() {
     }
 } 
   addCountryBtn.addEventListener('click', addAnotherCountry);
-  searchBtn.addEventListener('click', showData);
+  //dataDisplay.addEventListener('click', showData);

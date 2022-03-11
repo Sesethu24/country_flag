@@ -1,8 +1,12 @@
-let assert = require("assert");
-let addAnotherCountry = require("../addAnotherCountry");
+describe("AddAnotherCountry", () => {
+    it("should add countries to my list and local storage", () => {
 
-describe('addAnotherCountry' , function(){
-    it('should add a new country to my list' , function(){
-        assert.deepEqual(addAnotherCountry('Ukraine,🇺🇦'),);
-     });
-    });
+        let flagRegex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
+        let flag = '🇺🇦';
+        let country = 'Ukraine';
+
+        assert(flagRegex.test(flag),country , true);
+
+    })
+
+})

@@ -1,14 +1,17 @@
 const cName = document.querySelector(".showFlags");
-const cFlag = document.querySelector(".myFlags");
+//const cFlag = document.querySelector(".myFlags");
 const searchBtn = document.querySelector(".searchBtn");
-const addNewCountry = document.querySelector(".addNewCountry");
+const addCountry = document.querySelector(".enterCountry");
 const addNewFlag = document.querySelector(".myFlags");
 const errorMessages = document.querySelector(".messages");
 const dataDisplay = document.querySelector(".search");
+const addCountryBtn = document.querySelector(".addNewCountry");
 
 let countries = [{ country: "Argentina", flag: "🇦🇷" },{ country: "Brazil", flag: "🇧🇷" }, { country: "Chile", flag: "🇨🇱" }, { country: "Zambia", flag: "🇿🇲" },
 { country: "Uganda", flag: "🇺🇬" }, { country: "Malawi", flag: "🇲🇼" }, { country: "Rwanda", flag: "🇷🇼" },
 { country: "Ireland", flag: "🇮🇪" }, { country: "Switzerland", flag: "🇨🇭" }];
+
+countries.sort();
 
 if (localStorage['countries']) {
     countries = JSON.parse(localStorage.getItem('countries'));
@@ -29,7 +32,7 @@ function showData() {
   showData()
 
   function addAnotherCountry() {
-    const newCountryAdded = addNewCountry.value;
+    const newCountryAdded = addCountry.value;
     console.log(newCountryAdded)
     const newFlagAdded = addNewFlag.value;
     const newCountryToUpper = newCountryAdded.charAt(0).toUpperCase() + newCountryAdded.slice(1);
@@ -68,5 +71,5 @@ function showData() {
       checkFlag
     }
 } 
-  addNewCountry.addEventListener('click', addAnotherCountry);
+  addCountryBtn.addEventListener('click', addAnotherCountry);
   searchBtn.addEventListener('click', showData);
